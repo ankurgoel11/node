@@ -8,8 +8,9 @@ const bodyParser = require('body-parser')
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
+require('dotenv').config()
 // app.use(cors())
-const connection = mysql.createConnection('mysql://t6r3vb6dslaexvlkdsvs:pscale_pw_qVFH3g6A7JQZGwK0yWu5EFb0qlKo2tGpApOWtczVaY9@aws.connect.psdb.cloud/test?ssl={"rejectUnauthorized":true}')
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 function fetchData(sql,fields){
     return new Promise((resolve,reject)=>{
