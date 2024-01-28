@@ -17,7 +17,7 @@ function fetchData(sql,fields){
             if (error) {
                 reject(error.message);
             }
-            console.log("Printing the result")
+            console.log("Fetching the result")
             console.log(results)
             // resp.send(results)
             resolve(results)
@@ -32,7 +32,7 @@ function insertData(sql,fields){
                 reject(error.message);
             }
             
-            console.log("Printing the result")
+            console.log("Inserting the result")
             console.log(results)
             // resp.send(results)
             resolve(results)
@@ -50,7 +50,7 @@ function updateData(sql,fields){
                 reject(error.message);
             }
             
-            console.log("Printing the result")
+            console.log("Updating the result")
             console.log(results)
             // resp.send(results)
             resolve(results)
@@ -67,6 +67,10 @@ app.options('*',(req,resp)=>{
     resp.writeHead(204);
     resp.end();
     
+})
+
+app.get('/',async(req,resp)=>{
+    resp.send("Hello");
 })
 
 app.post('/update',async(req,resp)=>{
